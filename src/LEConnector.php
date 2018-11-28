@@ -104,7 +104,7 @@ class LEConnector
 	{
 		if($this->accountDeactivated) throw new \RuntimeException('The account was deactivated. No further requests can be made.');
 
-		$headers = array('Accept: application/json', 'Content-Type: application/jose+json');
+		$headers = array('Accept: application/json', 'Content-Type: application/jose+json', 'Expect:');
 		$requestURL = preg_match('~^http~', $URL) ? $URL : $this->baseURL . $URL;
         $handle = curl_init();
         curl_setopt($handle, CURLOPT_URL, $requestURL);
